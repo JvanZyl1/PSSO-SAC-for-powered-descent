@@ -1,0 +1,86 @@
+Variable,Units,Value
+Semi-major axis,m,6578137.0
+delta v loss stage 1 (ascent),m/s,1391.0
+delta v loss stage 2 (ascent),m/s,710.0
+delta v loss stage 1 (descent),m/s,1401.0
+delta v star stage 1 (descent),m/s,1709
+Kappa,-,2555.545743
+Optimal loss-free payload ratio stage 1,-,0.6909122020331394
+Optimal loss-free payload ratio stage 2,-,0.1700492514476375
+Optimal loss payload ratio stage 1,-,0.20019559002618223
+Optimal loss payload ratio stage 2,-,0.12179228279253689
+Structural coefficient ascent stage 1,-,0.12309553891583742
+Structural coefficient descent stage 1,-,0.607901249970981
+Structural coefficient ascent stage 1 (loss),-,0.18511906964663366
+Structural coefficient descent stage 1 (loss),-,0.4042259509818678
+Optimal loss-free velocity increment stage 1,m/s,2510.0723676697485
+Optimal loss-free velocity increment stage 2,m/s,6023.003050491146
+Initial mass (trace),ton,5521.921107888195
+Structural mass stage 1 (trace),ton,344.2813690503295
+Structural mass stage 2 (trace),ton,51.316880320293855
+Propellant mass stage 1 (trace),ton,4256.569653713165
+Propellant mass stage 2 (trace),ton,769.7532048044078
+Structural mass stage 1 (ascent),ton,851.7052609167409
+Structural mass stage 2 (ascent),ton,51.316880320293855
+Propellant mass stage 1 (ascent),ton,3749.1457618467534
+Propellant mass stage 2 (ascent),ton,769.7532048044078
+Structural mass stage 1 (descent),ton,344.2813690503295
+Structural mass stage 2 (descent),ton,-
+Propellant mass stage 1 (descent),ton,507.4238918664115
+Propellant mass stage 2 (descent),ton,-
+Actual structural mass stage 1,ton,344.2813690503295
+Actual structural mass stage 2,ton,51.316880320293855
+Stage 1 Mass,ton,4600.851022763494
+Stage 2 Mass,ton,821.0700851247016
+Actual propellant mass stage 1,ton,4256.569653713165
+Actual propellant mass stage 2,ton,769.7532048044078
+Initial mass (subrocket 0),ton,5521.921107888195
+Initial mass (subrocket 1),ton,921.0700851247016
+Ascent burnout mass (subrocket 0),ton,1772.7753460414424
+Ascent burnout mass (subrocket 1),ton,151.31688032029385
+Mass at stage separation (subrocket 0),ton,851.7052609167409
+Mass at stage separation (subrocket 1),ton,921.0700851247016
+Payload mass,ton,100.0
+Exhaust velocity stage 1,m/s,3433.5
+Exhaust velocity stage 2,m/s,3727.8
+Thrust engine stage 1,N,2745000.0
+Thrust engine stage 2,N,2000000.0
+Nozzle exit area,m^2,1.326
+Nozzle exit pressure stage 1,Pa,100000
+Nozzle exit pressure stage 2,Pa,0
+Number of engines stage 1,,42
+Number of engines stage 2,,4
+Number of engines per ring stage 1,,"[3, 13, 26]"
+Number of engines gimballed stage 1,,16
+Rocket Radius,m,5.8500000000000005
+Rocket frontal area,m^2,107.5131545874767
+Maximum thrust stage 1,MN,115.29
+Maximum thrust stage 2,MN,8.0
+Burn time stage 1,s,126.76669187287841
+Burn time stage 2,s,358.68574960873394
+Wall thickness tanks ,mm,10.0
+Payload fairing thickness ,cm,10.0
+Payload density ,kg/m^3,2000
+Stage 1 upper section height ,m,2.5553142902893455
+Stage 1 lower section height ,m,2.5553142902893455
+Stage 1 height ,m,50.35631553061721
+Oxidiser tank height stage 1 ,m,25.821726896359515
+Fuel tank height stage 1 ,m,19.423960053679
+Oxidiser mass stage 1 ,kg,3320030.675998497
+Fuel mass stage 1 ,kg,936538.9777146678
+Stage 2 upper section height ,m,0.40117541578201554
+Stage 2 lower section height ,m,0.40117541578201554
+Stage 2 payload height ,m,0.48137600935166824
+Stage 2 uppermost section height ,m,0.1
+Stage 2 height ,m,9.565905300743637
+Oxidiser tank height stage 2 ,m,4.669571661940978
+Fuel tank height stage 2 ,m,3.51260679788696
+Oxidiser mass stage 2 ,kg,600390.563483306
+Fuel mass stage 2 ,kg,169362.64132110184
+S_grid_fins,m^2,5.0
+d_base_grid_fin,m,49.35631553061721
+max_RCS_force_per_thruster,N,5000
+max_RCS_force_top,N,10000
+max_RCS_force_bottom,N,10000
+d_base_rcs_bottom,m,1
+d_base_rcs_top,m,49.35631553061721
