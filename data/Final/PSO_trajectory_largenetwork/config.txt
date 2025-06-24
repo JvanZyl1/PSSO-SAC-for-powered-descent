@@ -1,0 +1,85 @@
+landing_burn_pure_throttle_pso_params = {
+    'pop_size' : 300,
+    'generations' : 300,
+    'c1' : 1,
+    'c2' : 1,
+    'w_start' : 0.9,
+    'w_end' : 0.7,
+    'fitness_threshold' : -1000,
+    'num_sub_swarms' : 2,
+    'communication_freq' : 10,                  # How often subswarms share information
+    'migration_freq' : 5,                     # How often particles migrate
+    'number_of_migrants' : 1,
+    # Re-initialisation params
+    're_initialise_number_of_particles' : 600,
+    're_initialise_generation' : 90,
+}
+
+elif flight_phase == 'landing_burn_pure_throttle':
+    self.actor = simple_actor(input_dim=2,
+                                output_dim=1,
+                                number_of_hidden_layers = 2,
+                                hidden_dim = 32,
+                                flight_phase = flight_phase) # 1 actions: u0
+
+
+def compile_rtd_rl_landing_burn():
+    def done_func_lambda(state):
+        x, y, vx, vy, theta, theta_dot, gamma, alpha, mass, mass_propellant, time = state
+        density, atmospheric_pressure, speed_of_sound = endo_atmospheric_model(y)
+        speed = math.sqrt(vx**2 + vy**2)
+        dynamic_pressure = 0.5 * density * speed**2
+        if y > 0 and y < 5:
+            if speed < 1:
+                print(f'IT IS OVER< IT IS DONE!!!!')
+                return True
+            else:
+                return False
+        else:
+            return False
+    
+    def truncated_func_lambda(state, previous_state, info):
+        x, y, vx, vy, theta, theta_dot, gamma, alpha, mass, mass_propellant, time = state
+        air_density, atmospheric_pressure, speed_of_sound = endo_atmospheric_model(y)
+        speed = math.sqrt(vx**2 + vy**2)
+        dynamic_pressure = 0.5 * air_density * speed**2
+        if vy < 0:
+            alpha_effective = abs(gamma - theta - math.pi)
+        else:
+            alpha_effective = abs(theta - gamma)
+        if y < -10:
+            print(f'Truncated state due to y < -10: y = {y}')
+            return True, 1
+        elif mass_propellant <= 0:
+            print(f'Truncated state due to mass_propellant <= 0: y = {y}')
+            return True, 2
+        elif theta > math.pi + math.radians(2):
+            print(f'Truncated state due to theta > math.pi + math.radians(2): y = {y}')
+            return True, 3
+        elif dynamic_pressure > 65000:
+            print(f'Truncated state due to dynamic_pressure > 65000: y = {y}')
+            return True, 4
+        elif vy > 0.0:
+            print(f'Truncated state due to vy > 0.0: y = {y}')
+            return True, 6
+        else:
+            return False, 0
+    
+    def reward_func_lambda(state, done, truncated, actions, previous_state, info):
+        x, y, vx, vy, theta, theta_dot, gamma, alpha, mass, mass_propellant, time = state
+        air_density, atmospheric_pressure, speed_of_sound = endo_atmospheric_model(y)
+        speed = math.sqrt(vx**2 + vy**2)
+        dynamic_pressure = 0.5 * air_density * speed**2
+        reward = 0
+        if truncated:
+            reward = -abs(y)
+        if y < 1000:
+            if y < 100:
+                reward = 10 * (1 - math.tanh(abs(vy)/200))
+            else:
+                reward = 50 - speed/100*(1-y/1000)
+        if done:
+            reward = mass_propellant
+        return reward
+    return reward_func_lambda, truncated_func_lambda, done_func_lambda
+        

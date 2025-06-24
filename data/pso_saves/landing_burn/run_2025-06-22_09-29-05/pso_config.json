@@ -1,0 +1,23 @@
+{
+    "pop_size": 200,
+    "generations": 400,
+    "c1": 1,
+    "c2": 1,
+    "w_start": 0.9,
+    "w_end": 0.7,
+    "fitness_threshold": -1000,
+    "num_sub_swarms": 2,
+    "communication_freq": 10,
+    "migration_freq": 5,
+    "number_of_migrants": 1,
+    "re_initialise_number_of_particles": 600,
+    "re_initialise_generation": 90,
+    "flight_phase": "landing_burn",
+    "enable_wind": false,
+    "stochastic_wind": false,
+    "horiontal_wind_percentile": 50,
+    "use_multiprocessing": true,
+    "num_processes": 11,
+    "save_interval": 5,
+    "timestamp": "2025-06-22_09-29-05"
+}
